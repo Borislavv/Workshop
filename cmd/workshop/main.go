@@ -14,8 +14,10 @@ func main() {
 	/* Handler */
 	h := handler.NewHandler()
 
-	/* Handle routes */
+	/* Router */
 	r := chi.NewRouter()
+
+	/* Handle routes */
 	r.Get("/", h.Index)
 
 	/* Start server */
