@@ -49,7 +49,8 @@ func main() {
 
 	go func() {
 		<- quit
-		ctx, _ := context.WithTimeout(context.Background(), time.Second * 15)
+		ctx, cancel := context.WithTimeout(context.Background(), time.Second * 15)
+		defer cancel()
 		done <- server.Shutdown(ctx)
 	}()
 
