@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/ilyakaznacheev/cleanenv"
+	"gitlab.com/Zendden/workshop/internal/api/joke"
 	"gitlab.com/Zendden/workshop/internal/config"
 	"log"
 	"net/http"
@@ -19,8 +20,10 @@ func main() {
 		log.Fatal(err)
 	}
 
+	apiClient := joke.NewClient(cfg.JokeURL)
+
 	/* Handler */
-	h := handler.NewHandler()
+	h := handler.NewHandler(apiClient)
 
 	/* Router */
 	r := chi.NewRouter()
