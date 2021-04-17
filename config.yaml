@@ -1,1 +1,5 @@
+#Server
 port: "8080"
+
+#Services
+joke-url: "https://geek-jokes.sameerkumar.website"
