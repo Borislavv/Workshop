@@ -28,8 +28,10 @@ func main() {
 	/* Handle routes */
 	r.Get("/", h.Index)
 
+	path := cfg.Host+":"+cfg.Port
+
 	/* Start server */
-	log.Print("Server started")
-	err = http.ListenAndServe(":8080", r);
+	log.Printf("Server started as %s", path)
+	err = http.ListenAndServe(path, r)
 	log.Fatal(err)
 }
